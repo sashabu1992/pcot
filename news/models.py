@@ -30,7 +30,7 @@ class News(models.Model):
 
     """Основные данные """
     h1 = models.CharField(max_length=255, verbose_name="Заголовок H1")
-    image_zast = models.ImageField(upload_to=get_file_image_zast, verbose_name="Заставка объекта", blank=False)
+    image_zast = models.ImageField(upload_to=get_file_image_zast, verbose_name="Заставка новости", blank=True)
     post = CKEditor5Field(verbose_name="Содержание", blank=True, config_name='extends')
     introtext = models.TextField(max_length=1000, verbose_name="Краткое описание", blank=True)
     published_date = models.DateTimeField(blank=True, null=True, verbose_name="Дата публикации")
@@ -44,8 +44,8 @@ class News(models.Model):
 
     class Meta:
         ordering = ('title',)
-        verbose_name = ('новости')
-        verbose_name_plural = ('Новость')
+        verbose_name = ('Новость')
+        verbose_name_plural = ('Новости')
 
     def __str__(self):
         """Return title and username."""

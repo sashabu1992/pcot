@@ -7,10 +7,6 @@ from django.urls import reverse
 from django.utils.safestring import mark_safe
 from django import forms
 
-#Предпросмотр фото
-class PostImageInlineForm(forms.ModelForm):
-    def preview(self, obj):
-        return mark_safe(f'<img style="max-width:100px" src="{obj.image.url}">')
 
 
 @admin.register(News)
@@ -22,7 +18,7 @@ class News(admin.ModelAdmin):
             'fields': ('title','description', 'slug')
         }),
         ('Содержимое', {
-            'fields': ('h1', 'introtext', 'post')
+            'fields': ('h1', 'introtext','image_zast', 'post')
         }),
         ('Настройки', {
             'fields': ('category','created', 'modified', 'published_date', 'is_draft')
@@ -34,7 +30,10 @@ class News(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
 
     def preview(self, obj):
-        return mark_safe(f'<img style="max-width:100px" src="{obj.image_zast.url}">')
+        if obj.image_zast:
+            return mark_safe(f'<img style="max-width:100px" src="{obj.image_zast.url}">')
+        else:
+            return mark_safe('<img style="max-width:100px" src="/static/images/no-image.jpg">')
 
 
 
