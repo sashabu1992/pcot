@@ -7,14 +7,10 @@ from django.urls import reverse_lazy
 from django.http import HttpResponse, JsonResponse
 from django.core.mail import send_mail
 
-
-
-
-
 def glav(request):
     return render(
         request,
-        'pages/index.html',
+        'pages/index_turist.html',
         context={}
     )
 

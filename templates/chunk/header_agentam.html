@@ -1,0 +1,306 @@
+{% load static %}
+
+<header class="b-header">
+    <div class="header-top">
+        <div class="container">
+            <div class="row">
+                <div class="b-social">
+                    {% if settings_agent.vk %}
+                        <a rel='nofollow' target='_blank' href="{{ settings_agent.vk }}" class="social__link">
+                            <svg class="icn">
+                                <use xlink:href="{% static 'theme/svg/icons.svg' %}#icn-soc-vk"></use>
+                            </svg>
+                        </a>
+                    {% endif %}
+                    {% if settings_agent.facebook %}
+                        <a rel='nofollow' target='_blank' href="{{ settings_agent.facebook }}" class="social__link">
+                            <svg class="icn">
+                                <use xlink:href="{% static 'theme/svg/icons.svg' %}#icn-soc-fb"></use>
+                            </svg>
+                        </a>
+                    {% endif %}
+                    {% if settings_agent.inst %}
+                        <a rel='nofollow' target='_blank' href="{{ settings_agent.inst }}" class="social__link">
+                            <svg class="icn">
+                                <use xlink:href="{% static 'theme/svg/icons.svg' %}#icn-soc-in"></use>
+                            </svg>
+                        </a>
+                    {% endif %}
+                    {% if settings_agent.twitter %}
+                        <a rel='nofollow' target='_blank' href="{{ settings_agent.twitter }}" class="social__link">
+                            <svg class="icn">
+                                <use xlink:href="{% static 'theme/svg/icons.svg' %}#icn-soc-tw"></use>
+                            </svg>
+                        </a>
+                    {% endif %}
+                    {% if settings_agent.okdnoklassniki %}
+                        <a rel='nofollow' target='_blank' href="{{ settings_agent.okdnoklassniki }}"
+                           class="social__link">
+                            <svg class="icn">
+                                <use xlink:href="{% static 'theme/svg/icons.svg' %}#icn-soc-ok"></use>
+                            </svg>
+                        </a>
+                    {% endif %}
+                    {% if settings_agent.youtube %}
+                        <a rel='nofollow' target='_blank' href="{{ settings_agent.youtube }}" class="social__link">
+                            <svg class="icn">
+                                <use xlink:href="{% static 'theme/svg/icons.svg' %}#icn-soc-yt"></use>
+                            </svg>
+                        </a>
+                    {% endif %}
+                    {% if settings_agent.tiktok %}
+                        <a rel='nofollow' target='_blank' href="{{ settings_agent.tiktok }}" class="social__link">
+                            <svg class="icn">
+                                <use xlink:href="{% static 'theme/svg/icons.svg' %}#tiktok"></use>
+                            </svg>
+                        </a>
+                    {% endif %}
+                </div>
+
+                <ul class="login">
+                    <li class="login-item"><a href="{% url 'glav' %}">Вход для туристов</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="wr wr_header">
+        <div class="header__col-1">
+            <a href="/" class="b-logo logo_header">
+				<span class="logo__figure">
+					<img src="{% static 'theme/img/logo.png' %}" alt="Пермский центр отдыха и туризма<"
+                         class="logo__img">
+				</span>
+                <span class="b-slogan">
+					<span class="slogan__title">Пермский центр отдыха и туризма</span>
+					<span class="slogan__subtitle">Гипермаркет туров и впечатлений!</span>
+				</span>
+            </a>
+
+            <form action="" class="search">
+                <input type="text" value="" placeholder="Поиск по сайту...">
+                <button type="submit" class="btn-search">Найти</button>
+            </form>
+
+        </div>
+
+        <div class="header__col-2">
+            <div class="b-header-extra b-header-extra-a">
+                <a href="https://pcot59.ru/agentstvam/informaciya-po-vyezdam"
+                   class="btn btn_accent btn_block b-btn-order"><span class="middle">Информация по выездам</span></a>
+                <a href="{% static 'assets/agentskij-dogovor-bessrochnyj.docx' %}"
+                   class="btn btn_accent btn_block b-btn-order"><span class="middle">Агентский договор</span></a>
+                <a href="http://pcot.ruturbron.ru/" class="btn btn_accent btn_block b-btn-order"><span class="middle">Online бронирование</span></a>
+                </button>
+            </div>
+        </div>
+
+        <div class="header__col-3">
+            <div class="b-contacts contacts_header" itemscope="" itemtype="http://schema.org/Organization">
+                <meta itemprop="name" content="Пермский центр отдыха и туризма">
+
+
+                <div class="contacts__phone">
+
+                    {% if settings_agent.phone1_teleg %}
+                        <a href=" https://t.me/{{ settings_agent.phone1 }}">
+                            <img src="{% static 'theme/svg/t.png' %}" style="height:20px;width:20px" alt="">
+                        </a>
+                    {% endif %}
+                    {% if settings_agent.phone1_viber %}
+                        <a href="viber://add?number={{ settings_agent.phone1 }}">
+                            <svg class="icn icn-soc-viber ">
+                                <use xlink:href="{% static 'theme/svg/icons.svg' %}#icn-soc-viber"></use>
+                            </svg>
+                        </a>
+                    {% endif %}
+                    {% if settings_agent.phone1_whatsapp %}
+                        <a href="whatsapp://send?phone={{ settings_agent.phone1 }}">
+                            <svg class="icn icn-soc-whatsapp ">
+                                <use xlink:href="{% static 'theme/svg/icons.svg' %}#icn-soc-whatsapp"></use>
+                            </svg>
+                        </a>
+                    {% endif %}
+                    <a itemprop="telephone" href="tel:{{ settings_agent.phone1 }}">
+                        <svg class="icn icn-ui-phone ">
+                            <use xlink:href="{% static 'theme/svg/icons.svg' %}#icn-ui-phone"></use>
+                        </svg>
+                        <span class="middle">{{ settings_agent.phone1 }}</span>
+                    </a>
+                </div>
+                <div class="contacts__phone">
+                    {% if settings_agent.phone2_teleg %}
+                        <a href=" https://t.me/{{ settings_agent.phone2 }}">
+                            <img src="{% static 'theme/svg/t.png' %}" style="height:20px;width:20px" alt="">
+                        </a>
+                    {% endif %}
+                    {% if settings_agent.phone1_viber %}
+                        <a href="viber://add?number={{ settings_agent.phone2 }}">
+                            <svg class="icn icn-soc-viber ">
+                                <use xlink:href="{% static 'theme/svg/icons.svg' %}#icn-soc-viber"></use>
+                            </svg>
+                        </a>
+                    {% endif %}
+                    {% if settings_agent.phone2_whatsapp %}
+                        <a href="whatsapp://send?phone={{ settings_agent.phone2 }}">
+                            <svg class="icn icn-soc-whatsapp ">
+                                <use xlink:href="{% static 'theme/svg/icons.svg' %}#icn-soc-whatsapp"></use>
+                            </svg>
+                        </a>
+                    {% endif %}
+                    <a itemprop="telephone" href="tel:{{ settings_agent.phone2 }}">
+                        <svg class="icn icn-ui-phone ">
+                            <use xlink:href="{% static 'theme/svg/icons.svg' %}#icn-ui-phone"></use>
+                        </svg>
+                        <span class="middle">{{ settings_agent.phone2 }} - дежурный</span>
+                    </a>
+                </div>
+                <div class="contacts__address">
+                    <p itemprop="address" class=""> {{ settings_agent.addr }} </p>
+                </div>
+                <div class="yanfg">
+                    <iframe src="https://yandex.ru/sprav/widget/rating-badge/44144094847" width="150" height="50"
+                            frameborder="0"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<nav class="b-nav-top mp__nav-panel mp__nav-panel_main">
+    <div class="wr wr_nav-top">
+        <ul>
+            <li class="first level1 nav-top__parent odd">
+                <a target="_blank" href="#">Агентствам
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                         class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                        <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"></path>
+                    </svg>
+                </a>
+                <ul>
+                    <li class="first level2 odd"><a target="_blank" href="#">ONLINE-бронирование </a>
+                    </li>
+                    <li class="level2 even"><a target="_blank" href="#">О нас </a></li>
+                    <li class="level2 odd"><a target="_blank" href="#">Кураторы
+                        и контактная информация </a></li>
+                    <li class="level2 even"><a target="_blank" href="#">Вебинары,
+                        обучающие ролики, семинары </a></li>
+                    <li class="level2 odd"><a target="_blank"
+                                              href="#">Готовые
+                        рекламные посты для Ваших групп в ВК </a></li>
+                    <li class="level2 even"><a target="_blank" href="#">Документы </a></li>
+                    <li class="level2 odd"><a target="_blank" href="#">Информация по
+                        выездам </a></li>
+                    <li class="level2 even"><a target="_blank" href="#">Как начать
+                        сотрудничество </a></li>
+                    <li class="level2 odd"><a target="_blank" href="#">Комиссии и бонусная
+                        система </a></li>
+                    <li class="level2 even"><a target="_blank" href="#">Наши автобусы </a>
+                    </li>
+                    <li class="level2 odd"><a target="_blank" href="#">Оплата </a></li>
+                    <li class="level2 even"><a target="_blank" href="#">Подписаться
+                        на рассылку </a></li>
+                    <li class="level2 odd"><a target="_blank" href="#">Раздаточный
+                        материал </a></li>
+                    <li class="level2 even"><a target="_blank" href="#">Реквизиты </a></li>
+                    <li class="level2 odd"><a target="_blank" href="#">Рекламные туры -
+                        2023 </a></li>
+                    <li class="level2 even"><a target="_blank"
+                                               href="#">Семинары </a></li>
+                    <li class="level2 odd"><a target="_blank" href="#">Условия
+                        аннуляции </a></li>
+                    <li class="level2 even"><a target="_blank" href="#">Фингарантии </a></li>
+                    <li class="last level2 odd"><a target="_blank" href="#">FQA (Частые вопросы от
+                        турагентств) </a></li>
+                </ul>
+            </li>
+            <li class="level1 even"><a target="_blank" href="#">Новогодние туры </a></li>
+            <li class="level1 nav-top__parent odd">
+                <a target="_blank" href="#">Туры по России
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                         class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                        <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"></path>
+                    </svg>
+                </a>
+                <ul>
+                    <li class="first level2 odd"><a target="_blank" href="#">Автобусные
+                        туры по России </a></li>
+                    <li class="last level2 even"><a target="_blank"
+                                                    href="#">ЖД туры по
+                        России </a></li>
+                </ul>
+            </li>
+            <li class="level1 even"><a target="_blank" href="#">Календарь туров </a></li>
+            <li class="level1 nav-top__parent odd">
+                <a target="_blank" href="#">Туры выходного дня
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                         class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                        <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"></path>
+                    </svg>
+                </a>
+                <ul>
+                    <li class="first level2 odd"><a target="_blank" href="#">Активные
+                        туры по Пермскому краю и Уралу </a></li>
+                    <li class="level2 even"><a target="_blank" href="#">ЖД
+                        туры выходного дня </a></li>
+                    <li class="level2 odd"><a target="_blank" href="#">Гастрономические
+                        туры </a></li>
+                    <li class="level2 even"><a target="_blank"
+                                               href="#">Источники,
+                        термы, аквапарки, дельфинарий, зоопарк </a></li>
+                    <li class="level2 odd"><a target="_blank"
+                                              href="#">Экскурсионные
+                        туры от 2-х дней </a></li>
+                    <li class="level2 even"><a target="_blank" href="#">Экскурсии
+                        по Пермскому краю </a></li>
+                    <li class="last level2 odd"><a target="_blank"
+                                                   href="#">Экскурсии
+                        по Перми. Событийные туры в Перми </a></li>
+                </ul>
+            </li>
+            <li class="level1 nav-top__parent even">
+                <a target="_blank" href="#">Приём в Перми
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                         class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                        <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"></path>
+                    </svg>
+                </a>
+                <ul>
+                    <li class="first level2 nav-top__parent odd">
+                        <a target="_blank" href="#">Дополнительные услуги
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                 class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                                <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"></path>
+                            </svg>
+                        </a>
+                        <ul>
+                            <li class="first level3 odd"><a target="_blank" href="#">Гостиницы </a></li>
+                            <li class="level3 even"><a target="_blank" href="#">Трансфер </a></li>
+                            <li class="last level3 odd"><a target="_blank" href="#">Аренда автобуса </a></li>
+                        </ul>
+                    </li>
+                    <li class="level2 even"><a target="_blank" href="#">Индивидуальные
+                        туры </a></li>
+                    <li class="level2 odd"><a target="_blank" href="#">Куда
+                        сходить в Перми </a></li>
+                    <li class="level2 even"><a target="_blank" href="#">Куратор </a></li>
+                    <li class="level2 odd"><a target="_blank" href="#">Прием
+                        в Перми и Пермском крае </a></li>
+                    <li class="level2 even"><a target="_blank" href="#">Туры в Пермский край - кэшбэк 20% </a></li>
+                    <li class="level2 odd"><a target="_blank" href="#">Обзорные
+                        экскурсии по Перми </a></li>
+                    <li class="level2 even"><a target="_blank" href="">Отзывы </a></li>
+                    <li class="level2 odd"><a target="_blank" href="#">Сборные
+                        экскурсионные туры </a></li>
+                    <li class="level2 even"><a target="_blank" href="#">Туры для
+                        организованных групп </a></li>
+                    <li class="level2 odd"><a target="_blank" href="#">Школьные туры </a>
+                    </li>
+                    <li class="last level2 even"><a target="_blank" href="#">VIP-туры </a></li>
+                </ul>
+            </li>
+            <li class="level1 odd"><a target="_blank" href="#">ЖД туры </a>
+            </li>
+            <li class="last level1 even"><a target="_blank" href="#">Туры из Удмуртии </a></li>
+        </ul>
+    </div>
+</nav>
