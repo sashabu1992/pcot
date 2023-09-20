@@ -9,9 +9,10 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-
-from pathlib import Path
 import os
+from pathlib import Path
+from django.utils.translation import gettext_lazy as _
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,9 +27,23 @@ SECRET_KEY = 'django-insecure--h-3uw84trh$#w**a32^eym(h4kacovi^2%#rohvc+qdrvak08
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
+
+DEBUG = True
+DEBUG_HOST = 'DEV'
+#DEV and PROD
+
+if DEBUG_HOST == 'DEV':
+    ALLOWED_HOSTS = ['127.0.0.1']
+else:
+    ALLOWED_HOSTS = ['localhost']
 
 
+
+LANGUAGES = [
+   # ('en', _('English')),
+    ('ru', _('Russian')),
+]
 # Application definition
 
 INSTALLED_APPS = [
@@ -42,7 +57,8 @@ INSTALLED_APPS = [
     'agency',
     'turist',
     'tour',
-    'news'
+    'news',
+    'setting'
 ]
 
 MIDDLEWARE = [
@@ -69,6 +85,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'setting.context_processors.settings_data',
             ],
         },
     },
@@ -80,12 +97,30 @@ WSGI_APPLICATION = 'pcot.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR/'db.sqlite3',
+
+
+# Database
+# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
+if DEBUG_HOST == 'DEV':
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'pcotbt_test',
+            'USER': 'pcotbt_test',
+            'PASSWORD': 'Dk2al&Wu',
+            'HOST': 'pcotbt.beget.tech',
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'pcotbt_django',
+            'USER': 'pcotbt_django',
+            'PASSWORD': '4%OXvU3g',
+            'HOST': 'pcotbt.beget.tech',
+        }
+    }
 
 
 # Password validation
@@ -122,15 +157,20 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
 
-STATIC_URL = '/static/'
-#STATIC_ROOT = 'static/'
+if DEBUG_HOST == 'DEV':
+    STATIC_URL = '/static/'
+    STATICFILES_DIRS = [
+        os.path.join(BASE_DIR, "static"),
+    ]
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+    MEDIA_URL = '/media/'
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+else:
+    STATIC_URL = '/static/'
+    STATIC_ROOT = 'static/'
+    MEDIA_URL = '/media/'
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

@@ -1,0 +1,183 @@
+{% load static %}
+
+<header class="b-header">
+    <div class="header-top">
+        <div class="container">
+            <div class="row">
+                <div class="b-social">
+                    <a rel='nofollow' target='_blank' href="#" class="social__link">
+                        <svg class="icn">
+                            <use xlink:href="{% static 'theme/svg/icons.svg' %}#icn-soc-vk"></use>
+                        </svg>
+                    </a>
+
+                    <a rel='nofollow' target='_blank' href="#" class="social__link">
+                        <svg class="icn">
+                            <use xlink:href="{% static 'theme/svg/icons.svg' %}#icn-soc-fb"></use>
+                        </svg>
+                    </a>
+
+                    <a rel='nofollow' target='_blank' href="#" class="social__link">
+                        <svg class="icn">
+                            <use xlink:href="{% static 'theme/svg/icons.svg' %}#icn-soc-in"></use>
+                        </svg>
+                    </a>
+
+                    <a rel='nofollow' target='_blank' href="#" class="social__link">
+                        <svg class="icn">
+                            <use xlink:href="{% static 'theme/svg/icons.svg' %}#icn-soc-tw"></use>
+                        </svg>
+                    </a>
+                    <a rel='nofollow' target='_blank' href="#" class="social__link">
+                        <svg class="icn">
+                            <use xlink:href="{% static 'theme/svg/icons.svg' %}#icn-soc-ok"></use>
+                        </svg>
+                    </a>
+                    <a rel='nofollow' target='_blank' href="#" class="social__link">
+                        <svg class="icn">
+                            <use xlink:href="{% static 'theme/svg/icons.svg' %}#icn-soc-yt"></use>
+                        </svg>
+                    </a>
+                    <a rel='nofollow' target='_blank' href="#" class="social__link">
+                        <svg class="icn">
+                            <use xlink:href="{% static 'theme/svg/icons.svg' %}#tiktok"></use>
+                        </svg>
+                    </a>
+                </div>
+
+                <ul class="login">
+                    <li class="login-item"><a href="">Вход для агентств</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="wr wr_header">
+        <div class="header__col-1">
+            <a href="/" class="b-logo logo_header">
+				<span class="logo__figure">
+					<img src="{% static 'theme/img/logo.png' %}" alt="Пермский центр отдыха и туризма<"
+                         class="logo__img">
+				</span>
+                <span class="b-slogan">
+					<span class="slogan__title">Пермский центр отдыха и туризма</span>
+					<span class="slogan__subtitle">Гипермаркет туров и впечатлений!</span>
+				</span>
+            </a>
+            <div class="ya-site-form ya-site-form_inited_no"
+                 data-bem="{&quot;action&quot;:&quot;https://pcot59.ru/searchresults&quot;,&quot;arrow&quot;:false,&quot;bg&quot;:&quot;transparent&quot;,&quot;fontsize&quot;:14,&quot;fg&quot;:&quot;#000000&quot;,&quot;language&quot;:&quot;ru&quot;,&quot;logo&quot;:&quot;rb&quot;,&quot;publicname&quot;:&quot;Поиск по сайту Пермского центра отдыха и туризма&quot;,&quot;suggest&quot;:true,&quot;target&quot;:&quot;_self&quot;,&quot;tld&quot;:&quot;ru&quot;,&quot;type&quot;:3,&quot;usebigdictionary&quot;:true,&quot;searchid&quot;:2484831,&quot;input_fg&quot;:&quot;#000000&quot;,&quot;input_bg&quot;:&quot;#ffffff&quot;,&quot;input_fontStyle&quot;:&quot;normal&quot;,&quot;input_fontWeight&quot;:&quot;normal&quot;,&quot;input_placeholder&quot;:&quot;Поиск по сайту&quot;,&quot;input_placeholderColor&quot;:&quot;#000000&quot;,&quot;input_borderColor&quot;:&quot;#7f9db9&quot;}">
+                <form action="https://yandex.ru/search/site/" method="get" target="_self" accept-charset="utf-8"><input
+                        type="hidden" name="searchid" value="2484831"/><input type="hidden" name="l10n"
+                                                                              value="ru"/><input type="hidden"
+                                                                                                 name="reqenc"
+                                                                                                 value=""/><input
+                        type="search" name="text" value=""/><input type="submit" value="Найти"/></form>
+            </div>
+            <style type="text/css">.ya-page_js_yes .ya-site-form_inited_no {
+                display: none;
+            }</style>
+            <script type="text/javascript">(function (w, d, c) {
+                var s = d.createElement('script'), h = d.getElementsByTagName('script')[0], e = d.documentElement;
+                if ((' ' + e.className + ' ').indexOf(' ya-page_js_yes ') === -1) {
+                    e.className += ' ya-page_js_yes';
+                }
+                s.type = 'text/javascript';
+                s.async = true;
+                s.charset = 'utf-8';
+                s.src = (d.location.protocol === 'https:' ? 'https:' : 'http:') + '//site.yandex.net/v2.0/js/all.js';
+                h.parentNode.insertBefore(s, h);
+                (w[c] || (w[c] = [])).push(function () {
+                    Ya.Site.Form.init()
+                })
+            })(window, document, 'yandex_site_callbacks');</script>
+        </div>
+
+        <div class="header__col-2">
+            <div class="b-header-extra b-header-extra-a">
+                <a href="#" class="btn btn_accent btn_block b-btn-order"><span class="middle">Заказ тура</span></a>
+                <button class="btn btn_accent btn_block b-btn-callback js-callback-btn"><span class="middle">Обратный звонок</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="header__col-3">
+            <div class="b-contacts contacts_header" itemscope="" itemtype="http://schema.org/Organization">
+                <meta itemprop="name" content="Пермский центр отдыха и туризма">
+
+
+                <div class="contacts__phone">
+
+                    {% if settings_turist.phone1_teleg %}
+                        <a href=" https://t.me/{{ settings_turist.phone1 }}">
+                            <img src="{% static 'theme/svg/t.png' %}" style="height:20px;width:20px" alt="">
+                        </a>
+                    {% endif %}
+
+                    {% if settings_turist.phone1_viber %}
+
+                        <a href="viber://add?number={{ settings_turist.phone1 }}">
+                            <svg class="icn icn-soc-viber ">
+                                <use xlink:href="{% static 'theme/svg/icons.svg' %}#icn-soc-viber"></use>
+                            </svg>
+                        </a>
+                    {% endif %}
+                    {% if settings_turist.phone1_whatsapp %}
+
+                        <a href="whatsapp://send?phone={{ settings_turist.phone1 }}">
+                            <svg class="icn icn-soc-whatsapp ">
+                                <use xlink:href="{% static 'theme/svg/icons.svg' %}#icn-soc-whatsapp"></use>
+                            </svg>
+                        </a>
+                    {% endif %}
+                    <a itemprop="telephone" href="tel:{{ settings_turist.phone1 }}">
+                        <svg class="icn icn-ui-phone ">
+                            <use xlink:href="{% static 'theme/svg/icons.svg' %}#icn-ui-phone"></use>
+                        </svg>
+                        <span class="middle">{{ settings_turist.phone1 }}</span>
+                    </a>
+                </div>
+                `
+
+
+                <div class="contacts__phone">
+                    {% if settings_turist.phone2_teleg %}
+
+                        <a href=" https://t.me/{{ settings_turist.phone2 }}">
+                            <img src="{% static 'theme/svg/t.png' %}" style="height:20px;width:20px" alt="">
+                        </a>
+                    {% endif %}
+                    {% if settings_turist.phone1_viber %}
+
+                        <a href="viber://add?number={{ settings_turist.phone2 }}">
+                            <svg class="icn icn-soc-viber ">
+                                <use xlink:href="{% static 'theme/svg/icons.svg' %}#icn-soc-viber"></use>
+                            </svg>
+                        </a>
+                    {% endif %}
+
+                    {% if settings_turist.phone2_whatsapp %}
+
+                        <a href="whatsapp://send?phone={{ settings_turist.phone2 }}">
+                            <svg class="icn icn-soc-whatsapp ">
+                                <use xlink:href="{% static 'theme/svg/icons.svg' %}#icn-soc-whatsapp"></use>
+                            </svg>
+                        </a>
+                    {% endif %}
+                    <a itemprop="telephone" href="tel:{{ settings_turist.phone2 }}">
+                        <svg class="icn icn-ui-phone ">
+                            <use xlink:href="{% static 'theme/svg/icons.svg' %}#icn-ui-phone"></use>
+                        </svg>
+                        <span class="middle">{{ settings_turist.phone2 }}</span>
+                    </a>
+                </div>
+
+                <div class="contacts__address">
+                    <p itemprop="address" class=""> {{ settings_turist.addr }} </p>
+                </div>
+                <div class="yanfg">
+                    <iframe src="https://yandex.ru/sprav/widget/rating-badge/44144094847" width="150" height="50"
+                            frameborder="0"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

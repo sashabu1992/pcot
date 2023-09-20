@@ -1,3 +1,4 @@
+Django==3.2.19.
 python-slugify
 pillow
 easy-thumbnails
