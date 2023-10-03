@@ -25,6 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.glav, name='glav'),
     path('', include('agency.urls')),
+    path("set", views.set , name='set'),
 ]
 
 

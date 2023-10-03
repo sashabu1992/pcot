@@ -10,7 +10,7 @@ from django.core.mail import send_mail
 def agency(request):
     return render(
         request,
-        'pages/index_agentam.html',
+        'pages/agentam.html',
         context={}
     )
 

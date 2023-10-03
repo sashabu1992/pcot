@@ -19,6 +19,15 @@
 </head>
 <body>
 
+{{ cat_razdel }}
+
+{% if cat_razdel == "agent" %}
+    {% include "chunk/header_agentam.html" %}
+{% else %}
+    {% include "chunk/header_tourist.html" %}
+{% endif %}
+
+
 
 {% block base %}
 {% endblock base %}
