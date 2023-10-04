@@ -1,3 +1,5 @@
+from ckeditor.fields import RichTextField
+from ckeditor.widgets import CKEditorWidget
 from django.db import models
 from slugify import slugify
 
@@ -6,17 +8,7 @@ import uuid
 import os
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
-from django_ckeditor_5.fields import CKEditor5Field
 from django.contrib.auth.models import User
-
-CATEGORY_CHOISE = (
-    ('kvartira', 'Квартиры'),
-    ('komerch', 'Коммерческая недвижимость'),
-    ('zagorod', 'Загородные дома'),
-    ('garazh', 'Гаражи'),
-    ('zemuch', 'Земельные участки'),
-    ('newstroi', 'Новостройки'),
-)
 
 
 def increment_slug(slug, obj):
@@ -33,6 +25,7 @@ def increment_slug(slug, obj):
     return slug if original_slug == slug else slug + '-1'
 
 
+
 class ZagranTour(models.Model):
     slug = models.SlugField(max_length=255, blank=True, unique=True, verbose_name="URl")
     """СЕО натсрйоки"""
@@ -41,29 +34,26 @@ class ZagranTour(models.Model):
 
     """Основные данные """
     h1 = models.CharField(max_length=255, verbose_name="Заголовок H1")
-    post = CKEditor5Field(verbose_name="Содержание", blank=True, config_name='extends')
+    post = RichTextField(config_name='awesome_ckeditor')
     published_date = models.DateTimeField(blank=True, null=True, verbose_name="Дата публикации")
     created = models.DateField(auto_now_add=True, blank=True, verbose_name="Дата создания")
     modified = models.DateField(auto_now=True, verbose_name="Дата изменения")
     is_draft = models.BooleanField(default=True, verbose_name="Опубликован")
 
-    """Основные характеристики"""
-    best = models.BooleanField(default=False, verbose_name="Лучшее предложение")
-    category = models.CharField(max_length=16, choices=CATEGORY_CHOISE, default='kvartira',
-                                verbose_name="Тип отдыха")
 
 
     class Meta:
         ordering = ('title',)
-        verbose_name = ('загрантуры')
-        verbose_name_plural = ('загрантуры')
+        verbose_name = ('Загрантуры')
+        verbose_name_plural = ('Загрантуры')
 
     def __str__(self):
         """Return title and username."""
         return str(self.h1)
 
+    @property
     def get_absolute_url(self):
-        return reverse('ZagranTourLink', kwargs={'slug_ZagranTourLink': self.slug})  # new
+        return reverse('TourDetailCountry', kwargs={'slug_tourmaline': self.slug})  # new
 
     def clean(self):
         if not self.slug:
@@ -75,6 +65,12 @@ class ZagranTour(models.Model):
     def save(self, *args, **kwargs):
         self.full_clean()
         super(ZagranTour, self).save(*args, **kwargs)
+
+
+#popular = models.BooleanField(default=False, verbose_name="Популярный тур")
+#tourType = models.ForeignKey('TourType', on_delete=models.PROTECT, blank=False, verbose_name="Тип отдыха")
+# Тип отдыха
+
 
 
 

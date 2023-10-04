@@ -33,10 +33,12 @@
 {% endblock base %}
 
 
-<div class="sa" style="height:1000px"></div>
 
-
-
+{% if cat_razdel == "agent" %}
+    {% include "chunk/footer_agentam.html" %}
+{% else %}
+    {% include "chunk/footer_tourist.html" %}
+{% endif %}
 </body>
 
 </html>

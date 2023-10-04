@@ -1,9 +1,10 @@
+from ckeditor.fields import RichTextField
+from ckeditor.widgets import CKEditorWidget
 from django.db import models
 
 # Create your models here.
 from django.conf import settings
 from django.contrib.contenttypes.models import ContentType
-from django_ckeditor_5.fields import CKEditor5Field
 from django.utils.translation import gettext_lazy as _
 
 class TuristamSettings(models.Model):
@@ -70,10 +71,21 @@ class AgentamSettings(models.Model):
         """Return title and username."""
         return str(self.language)
 
+
+class TourType(models.Model):
+    name = models.CharField(max_length=150, db_index=True, verbose_name="Тип отдыха")
+    class Meta:
+        ordering = ('name',)
+        verbose_name = ('Тип отдыха')
+        verbose_name_plural = ('Тип отдыха')
+
+    def __str__(self):
+        """Return title and username."""
+        return str(self.name)
+
 class WebsiteContent(models.Model):
     language = models.CharField(max_length=16, unique=True, choices=settings.LANGUAGES, verbose_name=_('Язык'))
-    # политика конфидициальности
-    text_politic = CKEditor5Field(verbose_name="Политики конфидициальности ", blank=True, config_name='extends')
+    text_politic = RichTextField(config_name='awesome_ckeditor')
 
 
     class Meta:

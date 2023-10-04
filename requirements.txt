@@ -1,9 +1,9 @@
-Django==3.2.19.
+Django~=3.2.10
 python-slugify
 pillow
 easy-thumbnails
 django-filter
-django-ckeditor-5
+django-ckeditor
 mysqlclient
 django-crispy-forms
 crispy_bootstrap4

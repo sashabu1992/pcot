@@ -1,3 +1,10 @@
 from django.contrib import admin
+from .models import ZagranTour
 
-# Register your models here.
+
+
+admin.site.register(ZagranTour)
+
+
+
+

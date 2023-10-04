@@ -1,3 +1,4 @@
+from ckeditor.fields import RichTextField
 from django.db import models
 from slugify import slugify
 
@@ -6,8 +7,8 @@ import uuid
 import os
 from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
-from django_ckeditor_5.fields import CKEditor5Field
 from django.contrib.auth.models import User
+from ckeditor.widgets import CKEditorWidget
 
 CATEGORY_CHOISE = (
     ('agent', 'Новости агентам'),
@@ -31,7 +32,7 @@ class News(models.Model):
     """Основные данные """
     h1 = models.CharField(max_length=255, verbose_name="Заголовок H1")
     image_zast = models.ImageField(upload_to=get_file_image_zast, verbose_name="Заставка новости", blank=True)
-    post = CKEditor5Field(verbose_name="Содержание", blank=True, config_name='extends')
+    post = RichTextField(config_name='awesome_ckeditor')
     introtext = models.TextField(max_length=1000, verbose_name="Краткое описание", blank=True)
     published_date = models.DateTimeField(blank=True, null=True, verbose_name="Дата публикации")
     created = models.DateField(auto_now_add=True, blank=True, verbose_name="Дата создания")

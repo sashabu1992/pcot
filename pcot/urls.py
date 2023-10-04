@@ -21,10 +21,11 @@ from . import views
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('ckeditor5/', include('django_ckeditor_5.urls')),
+    path('ckeditor/', include('ckeditor_uploader.urls')),
     path('admin/', admin.site.urls),
     path('', views.glav, name='glav'),
     path('', include('agency.urls')),
+    path('', include('tour.urls')),
     path("set", views.set , name='set'),
 ]
 
