@@ -1,5 +1,6 @@
 {% load static %}
 
+
 <!DOCTYPE html>
 <html lang="RU-ru">
 <head>
@@ -19,8 +20,8 @@
 </head>
 <body>
 
-{{ cat_razdel }}
 
+{{ cat_razdel }}
 {% if cat_razdel == "agent" %}
     {% include "chunk/header_agentam.html" %}
 {% else %}
@@ -34,7 +35,7 @@
 
 
 
-{% if cat_razdel == "agent" %}
+{% if cookies_set == "agent" %}
     {% include "chunk/footer_agentam.html" %}
 {% else %}
     {% include "chunk/footer_tourist.html" %}

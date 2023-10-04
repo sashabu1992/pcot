@@ -7,21 +7,16 @@ from django.urls import reverse_lazy
 from django.http import HttpResponse, JsonResponse
 from django.core.mail import send_mail
 
-from django.http import HttpResponse
 
 def glav(request):
-    if not request.COOKIES.get('cat_razdel'):
-        cat_razdel = 'turist'
-    else:
-        cat_razdel = request.COOKIES['cat_razdel']
     return render(
         request,
         'pages/index.html',
-        context={ 'cat_razdel':cat_razdel}
+        context={}
     )
 
 # установка куки
-def set(request):
+def setcookies(request):
     # получаем из строки запроса имя пользователя
     cat_razdel = request.GET.get("cat_razdel", "")
     # создаем объект ответа

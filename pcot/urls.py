@@ -26,7 +26,7 @@ urlpatterns = [
     path('', views.glav, name='glav'),
     path('', include('agency.urls')),
     path('', include('tour.urls')),
-    path("set", views.set , name='set'),
+    path("set", views.setcookies, name='set'),
 ]
 
 
