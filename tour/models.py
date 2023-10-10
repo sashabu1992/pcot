@@ -70,6 +70,22 @@ class ZagranTour(models.Model):
 #popular = models.BooleanField(default=False, verbose_name="Популярный тур")
 #tourType = models.ForeignKey('TourType', on_delete=models.PROTECT, blank=False, verbose_name="Тип отдыха")
 # Тип отдыха
+#Модель Фтогалерреи
+
+def get_file_image_foto(instance, filename):
+    ext = filename.split('.')[-1]
+    filename = "%s.%s" % (uuid.uuid4(), ext)
+    return os.path.join('img/zagrantour/', filename)
+class GalleryTour(models.Model):
+    tour = models.ForeignKey(ZagranTour, verbose_name='Тур', on_delete=models.CASCADE)
+    image = models.ImageField(upload_to=get_file_image_foto, verbose_name="Фото")
+    alt  = models.CharField(max_length=1000, verbose_name="Тег ALT", blank=True)
+
+    class Meta:
+        ordering = ('tour',)
+        verbose_name = ('Фото')
+        verbose_name_plural = ('Фото')
+
 
 
 

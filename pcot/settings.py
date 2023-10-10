@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'easy_thumbnails',
     'ckeditor',
     'ckeditor_uploader',
     'agency',
@@ -86,6 +87,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'setting.context_processors.settings_data',
                 'setting.context_processors.cookies_set',
+                'tour.context_processors.get_zagran_tour_link',
             ],
         },
     },
@@ -155,10 +157,10 @@ USE_TZ = True
 
 if DEBUG_HOST == 'DEV':
     STATIC_URL = '/static/'
-    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-   # STATICFILES_DIRS = [
-    #    os.path.join(BASE_DIR, "static"),
-   # ]
+    #STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+    STATICFILES_DIRS = [
+        os.path.join(BASE_DIR, "static"),
+    ]
 
     MEDIA_URL = '/media/'
     MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -173,6 +175,14 @@ else:
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+THUMBNAIL_ALIASES = {
+    '': {
+        'galzagrantour': {'size': (824, 400), 'crop': "smart"},
+        'galzagrantour_thumbs': {'size': (167, 134), 'crop': "smart"},
+    #    'baher': {'size': (1120, 371), 'crop': "smart"},
+
+    },
+}
 
 
 CKEDITOR_UPLOAD_PATH = "uploads/"

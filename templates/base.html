@@ -7,21 +7,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <title>{% block title %} {% endblock title %} </title>
-    <meta name="description" content=" {% block META_description %}{% endblock META_description %}"/>
+    <title>{% block title %} {% endblock title %}</title>
+    <meta name="description" content="{% block META_description %}{% endblock META_description %}"/>
 
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{% static 'theme/css/bootstrap-grid.min.css' %}">
-    <link rel="stylesheet" href="{% static 'theme/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'theme/css/styles.css' %}">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 </head>
 <body>
 
-
-{{ cat_razdel }}
 {% if cat_razdel == "agent" %}
     {% include "chunk/header_agentam.html" %}
 {% else %}
@@ -35,11 +33,17 @@
 
 
 
-{% if cookies_set == "agent" %}
+{% if cat_razdel == "agent" %}
     {% include "chunk/footer_agentam.html" %}
 {% else %}
     {% include "chunk/footer_tourist.html" %}
 {% endif %}
+
+{% block scripts %}
+{% endblock scripts %}
+
+
+<script src="{% static '/theme/js/script.js' %}"></script>
 </body>
 
 </html>

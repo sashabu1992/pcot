@@ -693,7 +693,7 @@ Single-colored icons can be modified like so:
 
 a.btn,
 .btn {
-    background: #007cb9(--button);
+    background: #007cb9;
     display: inline-block;
     padding: 0.5em 1em;
     cursor: pointer;
@@ -1486,7 +1486,7 @@ span.nav__flag+span {
 .why__img-wr { position: relative; margin-bottom: 20px; }
 .why__title { font-size: 18px; font-weight: bold; margin-bottom: 10px; }
 .why__text { font-size: 14px; }
-.icon-why { width: 90px; height: 90px; background: url('../i/why.png') -90px 0 no-repeat; }
+.icon-why { width: 90px; height: 90px; background: url('/static/theme/img/i/why.png') -90px 0 no-repeat; }
 .icon-why-price { background-position: 0 -270px; }
 .icon-why-waranty { background-position: 0 -180px; }
 .icon-why-individual { background-position: 0 -0; }
@@ -1559,7 +1559,7 @@ span.nav__flag+span {
 
 
 .breadcrumbs li:not(.active)::after {
-    content: " Â» ";
+    content: " » ";
     display: inline-block;
     color: rgb(34, 79, 167);
     margin: 0px 5px;
@@ -2188,7 +2188,7 @@ body .jot-answer {
 }
 
 .b-quick-order {
-    background: #ebe5c7 url('../i/quickOrderForm-bg.jpg') 0 0 no-repeat;
+    background: #ebe5c7 ;
     padding: 40px;
     border-radius: 6px;
     background-size: cover;
@@ -2433,7 +2433,7 @@ body .jot-answer {
 .b-ex-gallery .slick-next {
     width: 17px;
     height: 39px;
-    background: url(../i/arrow_slider.png) 0 0;
+    background: url(/static/theme/img/i/arrow_slider.png) 0 0;
     cursor: pointer;
     z-index: 10;
 }
@@ -3135,7 +3135,7 @@ body .jot-answer {
     margin: 0;
     padding: 0;
     vertical-align: middle;
-    background: url(../i/flags24flat.png) 0 9px no-repeat;
+
 }
 
 .fl-ABKHAZIA {
@@ -4916,7 +4916,7 @@ aside #vk_groups {
 .search__choise-link {
     border: 1px solid #fff;
     padding: 6px 10px 7px;
-    background: #fff url(../i/icoplus.png) no-repeat center right 8px;
+    background: #fff url('/static/theme/img/i/icoplus.png') no-repeat center right 8px;
     cursor: pointer;
 }
 
@@ -5013,7 +5013,7 @@ aside #vk_groups {
     position: absolute;
     top: 4px;
     right: 4px;
-    background: url(../i/icox.png) no-repeat 0 0;
+    background: url('/static/theme/img/i/icox.png') no-repeat 0 0;
     cursor: pointer;
 }
 

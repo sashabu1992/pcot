@@ -1,10 +1,10 @@
-
 {% extends 'base.html' %}
-
 {% load static %}
+{% load thumbnail %}
 
-{% block title %}Загран тур {% endblock %}
-{% block META_description %}Загран тур {% endblock %}
+
+{% block title %}{{ post.title }}{% endblock %}
+{% block META_description %}{{ post.description }}{% endblock %}
 
 
 {% block base %}
@@ -12,14 +12,60 @@
 <main class="b-main">
 	<div class="wr wr_width-aside">
 
+
 		<section class="b-section">
+
 			<div class="b-breadcrumbs">
-			<nav class="breadcrumbs">
-                <ul class="breadcrumb" itemscope="" itemtype="http://schema.org/BreadcrumbList"><li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><meta itemprop="position" content="1"><a href="https://pcot59.ru/" title="Главная (баннеры на странице туристов)" itemprop="item"><span itemprop="name">Главная (баннеры на странице туристов)</span></a></li><li class="active" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><meta itemprop="position" content="2"><span typeof="WebPage" resource="https://pcot59.ru/zagrantury/"><span itemprop="name">Загрантуры</span></span></li></ul></nav>
+
+		  <ul class="breadcrumbs" itemscope="" itemtype="http://schema.org/BreadcrumbList">
+                    <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+                        <meta itemprop="position" content="1">
+                        <a href="{% url 'glav' %}"  itemprop="item">
+                            <span itemprop="name">Главная</span></a>
+                    </li>
+                    <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+                        <meta itemprop="position" content="2">
+                        <a href="{% url 'ZagranTour' %}"  itemprop="item">
+                            <span itemprop="name">Загрантуры</span></a>
+                     </li>
+                    <li class="active" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+                        <meta itemprop="position" content="3"><span typeof="WebPage" >
+                        <span itemprop="name">{{ post.h1 }}</span></span>
+                    </li>
+                </ul>
 			</div>
+    	<h1 class="h1">{{ post.h1 }}</h1>
+
+            <!-- slider -->
+			<div class="b-ex-gallery gallery_country">
+				<div class="b-ex-slider" id="slider-1">
+					<div class="ex-slider__list">
+
+                           {% for item in gallery %}
+						<div class="ex-slider__item">
+							<a href="/media/{{ item.image }}" rel="ex-1" title="" data-fancybox="gallery" class="fancybox">
+								<img src="{{ item.image|thumbnail_url:'galzagrantour' }}" alt="{{ item.alt }}"  title="" class="ex-slider__img">
+							</a>
+						</div>
+						    {% endfor %}
+					</div>
+
+					<!-- slider thumbs -->
+					<div class="ex-slider__thumbs">
+                    {% for item in gallery %}
+						<div>
+							<img src="{{ item.image|thumbnail_url:'galzagrantour_thumbs' }}" alt="{{ item.alt }}" class="ex-slider__t-img">
+						</div>
+                           {% endfor %}
+
+					</div>
+					<!-- /slider thumbs -->
+				</div>
+			</div>
+			<!-- /slider -->
 
 			<div class="u-content">
-				<h1>{{ post.h1 }}</h1>
+
 
 {{ post.post|safe }}
 
@@ -33,25 +79,10 @@
 
 				<nav class="nav-aside">
 						<h3>Загрантуры</h3>
-<ul><li class="level1">
-    <a href="/[~~]" class="nav-aside__link"></a></li>
-
-</ul>
+{% include "chunk/get_zagran_tour_link.html" %}
 
 				</nav>
 			</div>
-
-
-
-
-
-
-
-
-
-
-
-
 
 		</aside>
 
@@ -61,4 +92,19 @@
 
 
 
+{% endblock %}
+
+{% block scripts %}
+
+    <script src="{% static '/theme/js/libs.js' %}"></script>
+<script src="{% static '/theme/js/slick/slick.min.js' %}"></script>
+<script src="{% static '/theme/js/flatpickr/flatpickr.min.js' %}"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+ <link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css" rel="stylesheet" type="text/css">
+
+
+
+<link href="{% static '/theme/js/slick/slick.css' %}" rel="stylesheet">
+<link href="{% static '/theme/js/flatpickr/flatpickr.css' %}" rel="stylesheet">
 {% endblock %}

@@ -11,7 +11,6 @@ def settings_data(request):
     return {'settings_turist': settings_turist, 'settings_agent': settings_agent, 'url_get':url_get}
 
 def cookies_set(request):
-    print(request.COOKIES.get('cat_razdel'))
     if not request.COOKIES.get('cat_razdel'):
         cat_razdel = 'turist'
     else:
