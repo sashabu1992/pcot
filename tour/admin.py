@@ -25,7 +25,7 @@ class ZagranTour(admin.ModelAdmin):
             'fields': ('h1', 'post')
         }),
         ('Настройки', {
-            'fields': ('created', 'modified', 'published_date', 'is_draft')
+            'fields': ('created', 'modified', 'is_draft')
         }),
 
     )

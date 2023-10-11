@@ -35,7 +35,6 @@ class ZagranTour(models.Model):
     """Основные данные """
     h1 = models.CharField(max_length=255, verbose_name="Заголовок H1")
     post = RichTextField(config_name='awesome_ckeditor')
-    published_date = models.DateTimeField(blank=True, null=True, verbose_name="Дата публикации")
     created = models.DateField(auto_now_add=True, blank=True, verbose_name="Дата создания")
     modified = models.DateField(auto_now=True, verbose_name="Дата изменения")
     is_draft = models.BooleanField(default=True, verbose_name="Опубликован")

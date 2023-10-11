@@ -1,0 +1,9 @@
+<ul>
+{% with request as req %}
+    {% for i in nav_link_turistam %}
+        <li class="level1{% if req.path == i.get_absolute_url %} current{% endif %}">
+            <a href="{{ i.get_absolute_url }}" class="nav-aside__link">{{ i.h1 }}</a>
+        </li>
+    {% endfor %}
+{% endwith %}
+</ul>

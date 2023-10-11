@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Туристам {% endblock %}
+{% block META_description %}Туристам {% endblock %}
+
+
+{% block base %}
+
+<main class="b-main">
+	<div class="wr wr_width-aside">
+
+		<section class="b-section">
+			<div class="b-breadcrumbs">
+		<nav class="breadcrumbs">
+                <ul class="breadcrumb" itemscope="" itemtype="http://schema.org/BreadcrumbList">
+                    <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+                        <meta itemprop="position" content="1">
+                        <a href="{% url 'glav' %}" itemprop="item">
+                            <span itemprop="name">Главная</span></a></li>
+                    <li class="active" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+                        <meta itemprop="position" content="2"><span typeof="WebPage" >
+                        <span itemprop="name">{{ post.h1  }} </span></span></li>
+                </ul>
+            </nav>
+			</div>
+
+			<div class="u-content">
+                <header class="content-header">
+			<h1>{{ post.h1  }}</h1>
+
+				<div class="content-icons">
+					<a class="print-doc" href="javascript:(print());"> <img src="{% static '/theme/img/print.jpg' %}" width="40px" alt="Распечатать"></a>
+<a class="print-doc" href="{% url 'CreatePdf' %}"> <img src="{% static '/theme/img/print.jpg' %}" width="40px" alt="Распечатать"></a>
+
+
+
+				</div>
+					</header>
+
+{{ post.post|safe  }}
+
+
+			</div>
+		</section>
+
+
+		<aside class="b-aside">
+			<div class="block">
+
+				<nav class="nav-aside">
+						<h3>Туристам</h3>
+
+{% include "chunk/get_turistam_link.html" %}
+
+
+
+				</nav>
+			</div>
+
+
+		</aside>
+
+
+	</div>
+</main>
+
+
+
+
+
+{% endblock %}

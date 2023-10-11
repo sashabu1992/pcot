@@ -34,7 +34,6 @@ class News(models.Model):
     image_zast = models.ImageField(upload_to=get_file_image_zast, verbose_name="Заставка новости", blank=True)
     post = RichTextField(config_name='awesome_ckeditor')
     introtext = models.TextField(max_length=1000, verbose_name="Краткое описание", blank=True)
-    published_date = models.DateTimeField(blank=True, null=True, verbose_name="Дата публикации")
     created = models.DateField(auto_now_add=True, blank=True, verbose_name="Дата создания")
     modified = models.DateField(auto_now=True, verbose_name="Дата изменения")
     is_draft = models.BooleanField(default=True, verbose_name="Опубликован")

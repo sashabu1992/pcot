@@ -25,7 +25,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.glav, name='glav'),
     path('', include('agency.urls')),
-    path('', include('tour.urls')),
+    path('zagrantury/', include('tour.urls')),
+    path('turistam/', include('turist.urls')),
     path("set", views.setcookies, name='set'),
 ]
 

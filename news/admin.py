@@ -21,7 +21,7 @@ class News(admin.ModelAdmin):
             'fields': ('h1', 'introtext','image_zast', 'post')
         }),
         ('Настройки', {
-            'fields': ('category','created', 'modified', 'published_date', 'is_draft')
+            'fields': ('category','created', 'modified', 'is_draft')
         }),
 
     )
