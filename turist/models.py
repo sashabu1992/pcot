@@ -30,6 +30,7 @@ class ContentTourist(models.Model):
     """СЕО натсрйоки"""
     title = models.CharField(max_length=255, verbose_name="Заголовок Title")
     description = models.CharField(max_length=350, verbose_name="Заголовок Description", blank=True)
+    is_pdf = models.BooleanField(default=False, verbose_name="Разрешить PDF")
 
     """Основные данные """
     h1 = models.CharField(max_length=255, verbose_name="Заголовок H1")

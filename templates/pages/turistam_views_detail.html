@@ -18,8 +18,12 @@
                         <meta itemprop="position" content="1">
                         <a href="{% url 'glav' %}" itemprop="item">
                             <span itemprop="name">Главная</span></a></li>
+                    <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+                        <meta itemprop="position" content="2">
+                        <a href="{% url 'TuristamViews' %}" itemprop="item">
+                            <span itemprop="name">Туристам</span></a></li>
                     <li class="active" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-                        <meta itemprop="position" content="2"><span typeof="WebPage" >
+                        <meta itemprop="position" content="3"><span typeof="WebPage" >
                         <span itemprop="name">{{ post.h1  }} </span></span></li>
                 </ul>
             </nav>
@@ -31,8 +35,10 @@
 
 				<div class="content-icons">
 
-<a class="print-doc" href="{% url 'CreatePdf' %}"> <img src="{% static '/theme/img/print.jpg' %}" width="40px" alt="Распечатать"></a>
+                    {%  if post.is_pdf %}
+<a class="print-doc" target="_blank" href="{% url 'CreatePdf' post.slug %}"> <img src="{% static '/theme/img/print.jpg' %}" width="40px" alt="Распечатать"></a>
 
+                    {% endif %}
 
 
 				</div>

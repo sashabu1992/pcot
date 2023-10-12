@@ -4,7 +4,7 @@ from .views import GeneratePdf
 
 urlpatterns = [
       path('', views.TuristamViews, name='TuristamViews'),
-      path('pdf/', GeneratePdf.as_view() , name='CreatePdf'),
+      path('pdf/<slug:slug_turistampage>/', GeneratePdf.as_view() , name='CreatePdf'),
       path('<slug:slug_turistampage>/', views.DetailStrTuristam, name='DetailStrTuristam'),
 
 

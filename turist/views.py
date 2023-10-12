@@ -24,12 +24,10 @@ def DetailStrTuristam(request, slug_turistampage):
     )
 
 
-# Creating a class based view
-# Creating a class based view
 class GeneratePdf(View):
-    def get(self, request, *args, **kwargs):
+    def get(self, request, slug_turistampage, *args, **kwargs):
         # getting the template
-        data = ContentTourist.objects.all()
+        data = ContentTourist.objects.get(slug=slug_turistampage, is_draft=True)
         open('templates/maket/pdf.html', "w" , encoding='utf-8').write(render_to_string('maket/result.html', {'data': data}))
         pdf = html_to_pdf('maket/pdf.html')
         # rendering the template

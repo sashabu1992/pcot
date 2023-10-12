@@ -167,33 +167,16 @@
     <div class="wr wr_nav-top">
         <ul>
             <li class="first level1 nav-top__parent odd">
-                <a target="_blank" href="#">Туристам
+                <a  href="{% url 'TuristamViews' %}">Туристам
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                          class="bi bi-caret-right-fill" viewBox="0 0 16 16">
                         <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"></path>
                     </svg>
                 </a>
                 <ul>
-                    <li class="first level2 odd"><a target="_blank" href="#">О нас</a></li>
-                    <li class="level2 even"><a target="_blank" href="#">Наша команда</a></li>
-                    <li class="level2 odd"><a target="_blank" href="#">Контакты</a></li>
-                    <li class="level2 even"><a target="_blank" href="#">Как купить
-                        тур online</a></li>
-                    <li class="level2 odd"><a target="_blank" href="#">Мы – в СМИ</a></li>
-                    <li class="level2 even"><a target="_blank" href="#">Мы
-                        – в туристических ассоциациях</a></li>
-                    <li class="level2 odd"><a target="_blank" href="#">Награды</a></li>
-                    <li class="level2 even"><a target="_blank" href="#">Наши автобусы</a></li>
-                    <li class="level2 odd"><a target="_blank" href="#">Оплата</a></li>
-                    <li class="level2 even"><a target="_blank" href="#">Отзывы</a></li>
-                    <li class="level2 odd"><a target="_blank" href="#">Подарочные
-                        сертификаты</a></li>
-                    <li class="level2 even"><a target="_blank" href="#">Профсоюз</a></li>
-                    <li class="level2 odd"><a target="_blank" href="#">Реквизиты</a></li>
-                    <li class="level2 even"><a target="_blank" href="#">Скидки и
-                        акции</a></li>
-                    <li class="last level2 odd"><a target="_blank" href="#">FQA (Частые вопросы от
-                        туристов)</a></li>
+                  {% for i in nav_link_turistam %}
+         <li class="first level2 odd"><a  href="{{ i.get_absolute_url }}">{{ i.h1 }}</a></li>
+    {% endfor %}
                 </ul>
             </li>
             <li class="level1 even"><a target="_blank" href="#">Новогодние туры 2023-2024</a>

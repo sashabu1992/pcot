@@ -8,26 +8,43 @@
     <title>Welcome to Python Guides</title>
 
     <style type="text/css">
-@font-face {
-font-family: Arial; src: url("/fonts/arialmt.ttf");
-}
-body {
-font-family: Arial;
-}
+        @font-face {
+         font-family: 'sans-serif';
+         src: url("/static/fonts/arialmt.ttf");
+         }
+         body{
+         font-family: "sans-serif"!important;
+         }
+        h1{
+            font-size:24px;
+            text-align:center
+        }
+        p{
+            font-size:18px
+        }
+        strong{
+            font-weight:600
+        }
+        .logo__img{
+            width:140px
+        }
+
 </style>
 
 </head>
 <body>
+<div class="header">
+				<span class="logo__figure">
+					<img src="/static/theme/img/logo.png" alt="Пермский центр отдыха и туризма<" class="logo__img">
+				</span>
 
-      <h1>List of Employees</h1>
 
+        </div>
 
-        {% for i in data %}
-          <div>
-         <h1>{{ i.h1}}</h1>
-          {{ i.post|safe }}
-          </div>
-          {% endfor %}
+      <h1>{{ data.h1 }}</h1>
+
+{{ data.post|safe }}
+
 
 </body>
 </html>
