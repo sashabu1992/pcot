@@ -85,7 +85,7 @@ class TourType(models.Model):
 
 class WebsiteContent(models.Model):
     language = models.CharField(max_length=16, unique=True, choices=settings.LANGUAGES, verbose_name=_('Язык'))
-    text_politic = RichTextField(config_name='awesome_ckeditor')
+    text_politica = RichTextField(config_name='awesome_ckeditor')
 
 
     class Meta:

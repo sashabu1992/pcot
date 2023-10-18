@@ -84,17 +84,5 @@ class Migration(migrations.Migration):
                 'ordering': ['language'],
             },
         ),
-        migrations.CreateModel(
-            name='WebsiteContent',
-            fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('language', models.CharField(choices=[('ru', 'Russian')], max_length=16, unique=True, verbose_name='Язык')),
-                ('text_politic', ckeditor.fields.RichTextField()),
-            ],
-            options={
-                'verbose_name': 'Статический контент',
-                'verbose_name_plural': 'Статический контент',
-                'ordering': ['language'],
-            },
-        ),
+
     ]
