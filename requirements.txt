@@ -9,3 +9,6 @@ django-crispy-forms
 crispy_bootstrap4
 django-email-verification
 xhtml2pdf
+python-docx
+beautifulsoup4
+transliterate

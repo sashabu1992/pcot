@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Туристам {% endblock %}
-{% block META_description %}Туристам {% endblock %}
+{% block title %}{{ post.title  }} {% endblock %}
+{% block META_description %}{{ post.description  }} {% endblock %}
 
 
 {% block base %}
@@ -36,11 +36,11 @@
 				<div class="content-icons">
 
                     {%  if post.is_pdf %}
-<a class="print-doc" target="_blank" href="{% url 'CreatePdf' post.slug %}"> <img src="{% static '/theme/img/print.jpg' %}" width="40px" alt="Распечатать"></a>
-
+<a class="print-doc" target="_blank" href="{% url 'CreatePdf' post.slug %}"> <img src="{% static '/theme/img/i/pdf.webp' %}" width="40px" alt="Распечатать"></a>
                     {% endif %}
-
-
+                {%  if post.is_doc %}
+<a class="print-doc" target="_blank" href="{% url 'generate_doc' post.slug %}"> <img src="{% static '/theme/img/i/doc.png' %}" width="40px" alt="Распечатать"></a>
+       {% endif %}
 				</div>
 					</header>
 

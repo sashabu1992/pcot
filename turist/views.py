@@ -7,8 +7,9 @@ from .models import ContentTourist
 from .process_pdf import html_to_pdf
 from django.views.generic import View
 from django.template.loader import render_to_string
-
-
+from docx import Document
+from bs4 import BeautifulSoup
+import transliterate
 def TuristamViews(request):
     return render(
         request,
@@ -32,3 +33,24 @@ class GeneratePdf(View):
         pdf = html_to_pdf('maket/pdf.html')
         # rendering the template
         return HttpResponse(pdf, content_type='application/pdf')
+
+def generate_doc(request, slug_turistampage):
+    # Создаем новый документ
+    document = Document()
+    data = ContentTourist.objects.get(slug=slug_turistampage, is_draft=True)
+
+    # Добавляем заголовок в документ
+    document.add_heading(data.h1, 0)
+
+    # Удаляем теги HTML и стили из текста и добавляем параграфы в документ
+    soup = BeautifulSoup(data.post, 'html.parser')
+    content = soup.get_text().split('\n')
+    for paragraph in content:
+        document.add_paragraph(paragraph)
+
+    # Сохраняем документ в буфер и отправляем его в ответе
+    response = HttpResponse(content_type='application/vnd.openxmlformats-officedocument.wordprocessingml.document')
+    name = 'attachment; filename="' + transliterate.translit(data.h1, 'ru', reversed=True) + '.docx"'
+    response['Content-Disposition'] = str(name)
+    document.save(response)
+    return response

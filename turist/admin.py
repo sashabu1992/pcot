@@ -14,13 +14,13 @@ from django.contrib import admin
 @admin.register(ContentTourist)
 class ContentTourist(admin.ModelAdmin):
     search_fields = ("h1", )
-    list_display = ('h1', 'created', 'is_draft', 'is_pdf', 'slug')
+    list_display = ('h1', 'created', 'is_draft', 'is_pdf','is_doc', 'slug')
     fieldsets = (
     	('SEO', {
             'fields': ('title','description', 'slug')
         }),
         ('Содержимое', {
-            'fields': ('h1', 'post' , 'is_pdf')
+            'fields': ('h1', 'post' , 'is_pdf', 'is_doc')
         }),
         ('Настройки', {
             'fields': ('created', 'modified', 'is_draft')
@@ -28,7 +28,7 @@ class ContentTourist(admin.ModelAdmin):
 
     )
     readonly_fields = ('created', 'modified', )
-    list_filter = ('is_draft', )
+    list_filter = ('is_draft', 'is_pdf', 'is_doc', )
     prepopulated_fields = {'slug': ('title',)}
 
 

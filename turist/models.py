@@ -31,7 +31,7 @@ class ContentTourist(models.Model):
     title = models.CharField(max_length=255, verbose_name="Заголовок Title")
     description = models.CharField(max_length=350, verbose_name="Заголовок Description", blank=True)
     is_pdf = models.BooleanField(default=False, verbose_name="Разрешить PDF")
-
+    is_doc = models.BooleanField(default=False, verbose_name="Разрешить DOC")
     """Основные данные """
     h1 = models.CharField(max_length=255, verbose_name="Заголовок H1")
     post = RichTextField(config_name='awesome_ckeditor')

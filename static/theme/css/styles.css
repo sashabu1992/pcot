@@ -5080,6 +5080,10 @@ aside #vk_groups {
 }
 .content-icons {
     margin-left: 15px;
+    display:flex;
+}
+.content-icons a{
+    margin-left:15px
 }
 .header-top {
     background-color: #eeeeee;
