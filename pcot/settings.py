@@ -181,6 +181,7 @@ THUMBNAIL_ALIASES = {
     '': {
         'galzagrantour': {'size': (824, 400), 'crop': "smart"},
         'galzagrantour_thumbs': {'size': (167, 134), 'crop': "smart"},
+        'baner_glav': {'size': (1170, 370), 'crop': "smart"},
     #    'baher': {'size': (1120, 371), 'crop': "smart"},
 
     },

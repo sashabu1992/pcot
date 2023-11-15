@@ -1,21 +1,119 @@
-
 {% extends 'base.html' %}
 
 {% load static %}
+{% load thumbnail %}
 
-{% block title %}Главная страница туристов{% endblock %}
-{% block META_description %}Главная страница туристов{% endblock %}
+{% block title %}Главная - Пермский центр отдыха и туризма{% endblock %}
+{% block META_description %}Главная - Пермский центр отдыха и туризма{% endblock %}
 
 
 {% block base %}
 
+<section class="b-main">
+	<section class="container">
+		<div class="row">
 
-    <div class="container">
+			<div class="col-12">
 
+                {% if cat_razdel == "agent" %}
+				<div class="b-main-slider">
+					<ul class="main-slider__list">
+     {% for i in baner_agent %}
+         <li>
+    <a href="{{ i.url }}" class="main-slider__item">
+    <img class="main-slider__img" src="{{ i.image|thumbnail_url:'baner_glav' }}" alt="{{ i.alt }}">
+    <div class="main-slider__caption">
+{% if i.name %}
+    <div class="main-slider__title">
+        {{ i.name }}
     </div>
+{% endif %}
+    </div>
+</a>
+</li>
+    {% endfor %}
+
+                    </ul>
+				</div>
+{% else %}
 
 
+                    <div class="b-main-slider">
+					<ul class="main-slider__list">
+     {% for i in baner_turist %}
+         <li>
+    <a href="{{ i.url }}" class="main-slider__item">
+    <img class="main-slider__img" src="{{ i.image|thumbnail_url:'baner_glav' }}" alt="{{ i.alt }}">
+    <div class="main-slider__caption">
+{% if i.name %}
+    <div class="main-slider__title">
+        {{ i.name }}
+    </div>
+{% endif %}
+    </div>
+</a>
+</li>
+    {% endfor %}
+                    </ul>
+				</div>
+{% endif %}
 
-{% include "chunk/footer_tourist.html" %}
+
+			</div>
+		</div>
+
+
+</section>
+
+    <section class="b-why">
+	<div class="container">
+
+		<h2 class="h2 why__header head-main">Почему мы?</h2>
+
+		<div class="row">
+
+			<div class="col-12 col-sm-6 col-md-3 why__item">
+				<div class="why__img-wr"><i class="icon icon-why icon-why-price"></i></div>
+				<div class="why__title">Выгодные цены</div>
+				<div class="why__text">У нас всегда самые лучшие предложения.</div>
+			</div>
+
+			<div class="col-12 col-sm-6 col-md-3 why__item">
+				<div class="why__img-wr"><i class="icon icon-why icon-why-waranty"></i></div>
+				<div class="why__title">Надёжность и честность</div>
+				<div class="why__text">Все цены окончательные, никаких скрытых доплат.</div>
+			</div>
+
+			<div class="col-12 col-sm-6 col-md-3 why__item">
+				<div class="why__img-wr"><i class="icon icon-why icon-why-individual"></i></div>
+				<div class="why__title">Индивидуальный подход к каждому клиенту</div>
+				<div class="why__text">Гибкая ценовая политика для каждого клиента</div>
+			</div>
+
+			<div class="col-12 col-sm-6 col-md-3 why__item">
+				<div class="why__img-wr">
+					<i class="icon icon-why icon-why-number"></i>
+					<span class="desc">
+						10
+						<br>
+						лет
+					</span>
+				</div>
+				<div class="why__title">10 лет на рынке</div>
+				<div class="why__text">1175 довольных туристов!</div>
+			</div>
+
+		</div>
+
+	</div>
+
+</section>
+
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static 'theme/js/slick/slick.min.js' %}"></script>
+    <link href="{% static 'theme/js/slick/slick.css' %}" rel="stylesheet">
+
 
 {% endblock %}

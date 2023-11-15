@@ -38,7 +38,9 @@ fancyLang={
 };
 
 $('document').ready(function() {
-    $.mobilePanel({ 'navbar': '.b-nav-top' });
+
+
+   // $.mobilePanel({ 'navbar': '.b-nav-top' });
 
 
 

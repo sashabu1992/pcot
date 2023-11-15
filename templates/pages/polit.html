@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 
 
-{% block title %}Туристам {% endblock %}
-{% block META_description %}Туристам {% endblock %}
+{% block title %}Политика конфиденциальности персональных данных {% endblock %}
+{% block META_description %}Политика конфиденциальности персональных данных {% endblock %}
 
 
 {% block base %}
@@ -20,15 +20,16 @@
                             <span itemprop="name">Главная</span></a></li>
                     <li class="active" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
                         <meta itemprop="position" content="2"><span typeof="WebPage" >
-                        <span itemprop="name">Туристам</span></span></li>
+                        <span itemprop="name">Политика конфиденциальности</span></span></li>
                 </ul>
             </nav>
 			</div>
 
 			<div class="u-content">
-				<h1>Туристам</h1>
+				<h1>Политика конфиденциальности персональных данных</h1>
 
 
+   {{ settings_static.text_politica|safe }}
 
 			</div>
 
@@ -38,16 +39,24 @@
 		<aside class="b-aside">
 			<div class="block">
 
-				<nav class="nav-aside">
-						<h3>Туристам</h3>
 
-{% include "chunk/get_turistam_link.html" %}
-
-
-				</nav>
 			</div>
 
+
+
+
+
+
+
+
+
+
+
+
+
 		</aside>
+
+
 	</div>
 </main>
 
@@ -56,3 +65,6 @@
 
 
 {% endblock %}
+
+
+

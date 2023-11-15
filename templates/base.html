@@ -1,6 +1,4 @@
 {% load static %}
-
-
 <!DOCTYPE html>
 <html lang="RU-ru">
 <head>
@@ -34,11 +32,117 @@
 
 
 
-{% if cat_razdel == "agent" %}
-    {% include "chunk/footer_agentam.html" %}
-{% else %}
-    {% include "chunk/footer_tourist.html" %}
-{% endif %}
+
+
+<footer class="b-footer" >
+<div class="container">
+	<div class="row footer__row footer__row_1">
+		<div class="col-12 col-sm-6 col-md-4 footer__col footer__col_1">
+			<div class="b-social">
+
+	<a rel='nofollow' target='_blank' href="https://vk.com/agentpcot" class="social__link">
+		<svg class="icn"><use xlink:href="{% static 'theme/img/icons.svg' %}#icn-soc-vk"></use></svg>
+	</a>
+
+	<a rel='nofollow' target='_blank' href=" https://www.youtube.com/channel/UCYEKpTrtO5jwCMz18Le9_yA " class="social__link">
+		<svg class="icn"><use xlink:href="{% static 'theme/img/icons.svg' %}#icn-soc-yt"></use></svg>
+	</a>
+</div>
+
+			<div class="b-copy">
+				Пермский центр отдыха и туризма, 2023
+			</div>
+
+			<div class="b-agreement-link">
+				<a href="{% url 'polit' %}" target="_blank" class="madein__link" rel='nofollow'>Политика конфиденциальности</a>
+			</div>
+
+			<a href="https://tourism.gov.ru/operators/show.php?id=106851" target="_blank" style="text-decoration:none;font-size:12px"><div class="rosreestr">
+		<div> <img src="{% static 'theme/img/rosturizm-znak.png' %}" alt=""></div>
+		<div>
+			<p>Мы в реестре туроператоров</p>
+		ООО "Туристическое агентство  <br>
+Пермский центр отдыха и туризма"<br>
+РТО 014186
+		</div>
+				<style>
+		.rosreestr{
+			display:flex;
+			align-items: center;
+    margin-top: 10px;
+		}
+		.rosreestr img{
+			margin-right:15px
+		}
+	</style>
+
+
+		</div>
+				</a>
+			</div>
+		<div class="col-12 col-sm-6 col-md-4 footer__col footer__col_2">
+			<div class="pay-system">
+				<svg class="icn icn-pay"><use xlink:href="{% static 'theme/img/icons.svg' %}#icn-pay-mir"></use></svg>
+				<svg class="icn icn-pay"><use xlink:href="{% static 'theme/img/icons.svg' %}#icn-pay-visa"></use></svg>
+				<svg class="icn icn-pay"><use xlink:href="{% static 'theme/img/icons.svg' %}#icn-pay-mastercard"></use></svg>
+				<svg class="icn icn-pay"><use xlink:href="{% static 'theme/img/icons.svg' %}#icn-pay-maestro"></use></svg>
+			</div>
+
+			<img src="{% static 'theme/img/logo_rst_bely_bukvy.png' %}" class="imglop" alt="">
+		</div>
+		<style>
+			.imglop{
+				width:250px;
+				max-width:100%;
+				margin-top:15px;
+			}
+		</style>
+		<div class="col-12 col-sm-6 col-md-4 footer__col footer__col_3">
+			<div class="b-contacts contacts_footer">
+
+				<div class="b-contacts contacts_header" itemscope="" itemtype="http://schema.org/Organization">
+	<meta itemprop="name" content="Пермский центр отдыха и туризма">
+
+	<div class="contacts__phone">
+
+
+
+
+		<a itemprop="telephone" href="tel:">
+			<svg class="icn icn-ui-phone middle"><use xlink:href="{% static 'theme/img/icons.svg' %}#icn-ui-phone"></use></svg>
+			<span class="middle">8 (342) 254-02-50</span>
+		</a>
+	</div>
+
+
+	<div class="contacts__phone">
+
+
+
+
+		<a itemprop="telephone" href="tel:">
+			<svg class="icn icn-ui-phone middle"><use xlink:href="{% static 'theme/img/icons.svg' %}#icn-ui-phone"></use></svg>
+			<span class="middle">8 (963) 876-89-43 - дежурный</span>
+		</a>
+	</div>
+
+
+
+	<div class="contacts__address">
+		<p itemprop="address" class=""> г. Пермь, ул. Ленина, 66, 1 этаж, левое крыло, офис 2 </p>
+	</div>
+	<div class="yanfg">
+	<iframe src="https://yandex.ru/sprav/widget/rating-badge/44144094847" width="150" height="50" frameborder="0"></iframe>
+		</div>
+</div>
+
+
+
+
+</div>
+</footer>
+<button class="b-back-to-top" style="display: none;">Наверх</button>
+
 
 {% block scripts %}
 {% endblock scripts %}

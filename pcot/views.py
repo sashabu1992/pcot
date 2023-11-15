@@ -15,6 +15,14 @@ def glav(request):
         context={}
     )
 
+def polit(request):
+    return render(
+        request,
+        'pages/polit.html',
+        context={}
+    )
+
+
 # установка куки
 def setcookies(request):
     # получаем из строки запроса имя пользователя

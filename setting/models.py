@@ -1,3 +1,6 @@
+import os
+import uuid
+
 from ckeditor.fields import RichTextField
 from ckeditor.widgets import CKEditorWidget
 from django.db import models
@@ -31,8 +34,8 @@ class TuristamSettings(models.Model):
     tiktok = models.CharField(max_length=1000, blank=True, verbose_name=_('TikTok'))
 
     class Meta:
-        verbose_name = _('Настройки раздел "Туристам"')
-        verbose_name_plural = _('Настройки раздел "Туристам"')
+        verbose_name = _('Настройки "Туристам"')
+        verbose_name_plural = _('Настройки "Туристам"')
         ordering = ['language']
 
     def __str__(self):
@@ -63,8 +66,8 @@ class AgentamSettings(models.Model):
     tiktok = models.CharField(max_length=1000, blank=True, verbose_name=_('TikTok'))
 
     class Meta:
-        verbose_name = _('Настройки раздел "Агенствам"')
-        verbose_name_plural = _('Настройки раздел "Агенствам"')
+        verbose_name = _('Настройки "Агенствам"')
+        verbose_name_plural = _('Настройки "Агенствам"')
         ordering = ['language']
 
     def __str__(self):
@@ -85,8 +88,7 @@ class TourType(models.Model):
 
 class WebsiteContent(models.Model):
     language = models.CharField(max_length=16, unique=True, choices=settings.LANGUAGES, verbose_name=_('Язык'))
-    text_politica = RichTextField(config_name='awesome_ckeditor')
-
+    text_politica = RichTextField(config_name='awesome_ckeditor',  verbose_name="Политика конфиденциальности")
 
     class Meta:
         verbose_name = _('Статический контент')
@@ -97,3 +99,36 @@ class WebsiteContent(models.Model):
         """Return title and username."""
         return str(self.language)
 
+def get_file_image_baner(instance, filename):
+    ext = filename.split('.')[-1]
+    filename = "%s.%s" % (uuid.uuid4(), ext)
+    return os.path.join('img/banerturist/', filename)
+class BanerTurist(models.Model):
+    image = models.ImageField(upload_to=get_file_image_baner, verbose_name="Банер")
+    name = models.CharField(max_length=1000, verbose_name="Название", blank=True)
+    alt  = models.CharField(max_length=1000, verbose_name="Тег ALT", blank=True)
+    url = models.CharField(max_length=10000, verbose_name="Ссылка", blank=True)
+    class Meta:
+        ordering = ('id',)
+        verbose_name = ('Банеры "Туристам"')
+        verbose_name_plural = ('Банеры "Туристам"')
+    def __str__(self):
+        """Return title and username."""
+        return str(self.id)
+
+def get_file_image_baner2(instance, filename):
+    ext = filename.split('.')[-1]
+    filename = "%s.%s" % (uuid.uuid4(), ext)
+    return os.path.join('img/baneragent/', filename)
+class BanerAgent(models.Model):
+    image = models.ImageField(upload_to=get_file_image_baner2, verbose_name="Банер")
+    name = models.CharField(max_length=1000, verbose_name="Название", blank=True)
+    alt  = models.CharField(max_length=1000, verbose_name="Тег ALT", blank=True)
+    url = models.CharField(max_length=10000, verbose_name="Ссылка", blank=True)
+    class Meta:
+        ordering = ('id',)
+        verbose_name = ('Банеры "Агентам"')
+        verbose_name_plural = ('Банеры "Агентам"')
+    def __str__(self):
+        """Return title and username."""
+        return str(self.id)
